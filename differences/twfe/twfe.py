@@ -12,7 +12,6 @@ from ..tools.relative_periods import (bin_relative_periods_dummies,
                                       get_relative_periods_dummies)
 from ..tools.utility import (EventStudyResult, bin_start_end,
                              capitalize_details, process_formula)
-from .plot import plot_event_study
 from .utility import add_stack_fe, stack_did_data
 
 
@@ -351,11 +350,4 @@ class TWFE:
 
         return details
 
-    def plot(self, **plotting_parameters):
-        estimation_details = capitalize_details(self.estimation_details)
 
-        return plot_event_study(
-            df=self._result.event_study_est,
-            plotting_parameters=plotting_parameters,
-            estimation_details=estimation_details,
-        )
